@@ -21,8 +21,8 @@ model Pool {
   createdAt DateTime @default(now())
   ownerId   String?
 
-  Participant Participant[]
-  owner       User?         @relation(fields: [ownerId], references: [id])
+  participants Participant[]
+  owner        User?         @relation(fields: [ownerId], references: [id])
 }
 
 model Participant {
@@ -44,7 +44,6 @@ model User {
   email     String   @unique
   avatarUrl String?
   createdAt DateTime @default(now())
-  poolId    String
 
   participatingAt Participant[]
   ownPools        Pool[]
